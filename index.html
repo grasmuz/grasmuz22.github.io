@@ -3,71 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Титульная страница</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.125rem; /* Размер шрифта */
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        .header {
+            background-color: #ffffff;
+            padding: 1.1111%; /* Отступы вокруг шапки */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-link {
+            display: inline-block;
+        }
+
+        .logo {
+            background: url('img/u0.png') center/cover no-repeat;
+            width: 80px; /* Ширина логотипа */
+            height: 80px; /* Высота логотипа */
+        }
+
+        .menu {
+            display: flex;
+            flex-grow: 1; /* Расширяем меню, чтобы заполнить оставшееся пространство */
+            justify-content: space-between; /* Распределение пунктов меню */
+            margin-left: 5.5556%; /* Отступ слева */
+        }
+
+        .menu-item {
+            padding: 1.1111%; /* Внутренние отступы для пунктов меню */
+            text-decoration: none;
+            color: #000000;
+            position: relative;
+        }
+
+        .menu-item:not(:last-child) {
+            margin-right: 0.5556%; /* Отступ между пунктами меню */
+        }
+
+        .menu-item:hover::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px; /* Высота подчеркивания */
+            background-color: rgba(255, 228, 1, 1);
+            bottom: -5px; /* Отступ от нижнего края */
+            left: 0;
+        }
+
+        .login-btn {
+            background-color: rgba(255, 228, 1, 1);
+            color: #333;
+            padding: 1.1111% 2.2222%; /* Внутренние отступы кнопки */
+            border: none;
+            font-size: 0.8889rem; /* Размер шрифта кнопки */
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 5.5556%; /* Отступ справа */
+            margin-left: 5.5556%; /* Отступ слева */
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            border: none;
+            outline: none;
+            font-size: 1.125rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: rgb(0, 0, 0);
+            padding: 9px 11px;
+            background-color: inherit;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 9px 11px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        @media screen and (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                padding: 2.2222%;
+            }
+
+            .logo {
+                width: 22.2222%;
+                height: auto;
+                margin-bottom: 2.2222%;
+            }
+
+            .menu {
+                margin-left: 0;
+                flex-wrap: wrap;
+            }
+
+            .menu-item {
+                margin-right: 0;
+                margin-bottom: 2.2222%;
+                width: 100%;
+                text-align: center;
+            }
+
+            .login-btn {
+                margin-top: 2.2222%;
+                margin-right: 8.8889%;
+                margin-left: 8.8889%;
+            }
+
+            .menu-item:hover::after {
+                content: '';
+                position: absolute;
+                width: 50%;
+                height: 3px;
+                background-color: rgba(255, 228, 1, 1);
+                bottom: -5px;
+                left: 25%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header class="header"> <!--Верхняя часть страницы-->
+    <header class="header">
         <a href="index.html" class="logo-link">
             <div class="logo"></div>
         </a>
-        <nav class="menu"> <!--меню страницы сверху-->
+        <nav class="menu">
             <a href="getmoney.html" class="menu-item">Получить деньги</a>
             <a href="otdat.html" class="menu-item">Погасить кредит</a>
-            <a href="support.html" class="menu-item">Поддержка</a>
-            <div class="dropdown">  <!-- подменю-->
-                <a href="contact.html" class="menu-item">Контакты</a>
+            <div class="dropdown">
+                <button class="dropbtn">Поддержка</button>
                 <div class="dropdown-content">
-                    <a href="number.html">Телефон</a>
-                    <a href="addres.html">Адрес</a>
-                    <a href="email.html">Электронная почта</a>
+                  <a href="#">Написать в поддержку</a>
+                  <a href="#">FAQ</a>
+                  <a href="#">Разместить вопрос</a>
                 </div>
-            </div>
-            <div class="dropdown"> <!-- подменю-->
-                <a href="ol.html" class="menu-item">О нас</a>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn">Контакты</button>
                 <div class="dropdown-content">
-                    <a href="history.html">История</a>
-                    <a href="team.html">Команда</a>
-                    <a href="anim.html">Крутые анимации</a>
+                  <a href="#">Связаться</a>
+                  <a href="#">Команда</a>
+                  <a href="#">Адреса</a>
                 </div>
-            </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn">Компания</button>
+                <div class="dropdown-content">
+                  <a href="#">Реферальная система</a>
+                  <a href="#">Отзывы клиентов</a>
+                  <a href="#">Партнерство</a>
+                </div>
+              </div>
         </nav>
         <button class="login-btn">Вход</button>
     </header>
-    <div class="main-content"> <!-- основной контент-->
-        <div class="left-panel"><!-- левая часть страницы-->
-            <div class="popup"><!-- окно взятия кредита-->
-                <div class="header2"><!-- верхняя часть окна взятия кредита-->
-                    <h2>Займ</h2>
-                </div>
-                <div class="content"><!-- выбора какого займа и окно ввода суммы -->
-                    <button class="loan-btn">Первый займ</button>
-                    <button class="loan-btn">Повторный займ</button>
-                    <label for="amount">Сумма:</label>
-                    <input type="text" id="amount" placeholder="Введите сумму">
-                </div>
-                <div class="footer"><!-- кнопка взятия денег-->
-                    <button class="get-money-btn">Взять деньги</button>
-                </div>
-            </div>
-        </div>
-        <div class="right-panel"><!--правая часть страницы-->
-            <img src="img/u26.png" alt="aga" class="background-photo">
-        </div>
-    </div>
-    <footer><!--подвал-->
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <p>Время работы: Пн-Пт 9:00-18:00</p>
-                    <p>Телефон: 7 707 045 44 83</p>
-                    <p>E-Mail: info@keke.kz</p>
-                    <p>Instagram: kekezaim</p>
-                    <p>Telegram: @kekezaim</p>
-                </div>
-                <p class="company-name">Kekezaim.kz &copy; Все права защищены</p>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>
