@@ -14,6 +14,127 @@
             color: #333;
         }
 
+        .content {
+            display: flex;
+            flex-direction: column; /* Расстояние между блоками */
+        }
+        .block1{
+            flex-direction: row;
+            display: flex;
+            gap:100px;
+            justify-content: center;
+            align-items: center;
+        }
+        .block2 .block3{
+            flex-direction: row;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .panel1, .panel2 {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .panel1 h2, .panel2 h2 {
+            margin-bottom: 20px;
+        }
+
+        .panel1 ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .panel1 ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Стили для калькулятора */
+        .calculator {
+            background-color: #ffffff62;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .calculator p {
+            margin: 10px 0;
+        }
+        .calculator label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .calculator input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .calculator input[type="checkbox"] {
+            margin-bottom: 10px;
+        }
+
+        .calculator button {
+            width: 100%;
+            padding: 10px;
+            background-color: #60ec14;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 1.125rem;
+            cursor: pointer;
+            margin-top: 10px; /* Добавлено расстояние между кнопкой и остальными элементами */
+        }
+
+        .calculator button:hover {
+            background-color: #224f1d;
+        }
+
+        #result {
+            margin-top: 10px; /* Добавлено расстояние между результатом и остальными элементами */
+        }
+        .panel3 {
+            flex-direction: column;
+            display: flex;
+            text-align: center;
+        }
+        .panel4{
+            flex-direction: row;
+            display: flex;
+        }
+
+        .ungiv {
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 30%; /* Ширина блока с шагами */
+        }
+        @media only screen and (max-width: 768px){
+            .block1{
+                flex-direction: column;
+                gap:30px;
+            }
+            .block2 .block3{
+                width: 100%;
+            }
+            .ungiv{
+                width: 80%;
+            }
+            .panel4{
+                flex-direction: column;
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+            }
+        }
         .header {
             background-color: #ffffff;
             padding: 1.1111%; /* Отступы вокруг шапки */
@@ -27,7 +148,7 @@
         }
 
         .logo {
-            background: url('img/u0.png') center/cover no-repeat;
+            background: url('u0-transformed.png') center/cover no-repeat;
             width: 80px; /* Ширина логотипа */
             height: 80px; /* Высота логотипа */
         }
@@ -39,33 +160,13 @@
             margin-left: 5.5556%; /* Отступ слева */
         }
 
-        .menu-item {
-            padding: 1.1111%; /* Внутренние отступы для пунктов меню */
-            text-decoration: none;
-            color: #000000;
-            position: relative;
-        }
-
-        .menu-item:not(:last-child) {
-            margin-right: 0.5556%; /* Отступ между пунктами меню */
-        }
-
-        .menu-item:hover::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 3px; /* Высота подчеркивания */
-            background-color: rgba(255, 228, 1, 1);
-            bottom: -5px; /* Отступ от нижнего края */
-            left: 0;
-        }
 
         .login-btn {
             background-color: rgba(255, 228, 1, 1);
             color: #333;
             padding: 1.1111% 2.2222%; /* Внутренние отступы кнопки */
             border: none;
-            font-size: 0.8889rem; /* Размер шрифта кнопки */
+            font-size: 0.9889rem; /* Размер шрифта кнопки */
             border-radius: 5px;
             cursor: pointer;
             margin-right: 5.5556%; /* Отступ справа */
@@ -114,47 +215,79 @@
             display: block;
         }
 
-        @media screen and (max-width: 209px) {
-            .header {
-                flex-direction: column;
-                padding: 2.2222%;
-            }
+        @media screen and (max-width: 720px) {
+    .header {
+        flex-direction: column;
+        padding: 1.2222%;
+    }
 
-            .logo {
-        margin: 5px auto; /* Centering the logo horizontally */
-        width: 50px; /* Adjust the width of the logo */
-        height: auto; /* Allowing the height to adjust proportionally */
-        margin-bottom: 5px;
-            }
-
-            .menu {
-                margin-left: 0;
-                flex-wrap: wrap;
-            }
-
-            .menu-item {
-                margin-right: 0;
-                margin-bottom: 2.2222%;
-                width: 100%;
-                text-align: center;
-            }
-
-            .login-btn {
-                margin-top: 2.2222%;
-                margin-right: 8.8889%;
-                margin-left: 8.8889%;
-            }
-
-            .menu-item:hover::after {
-                content: '';
-                position: absolute;
-                width: 50%;
-                height: 3px;
-                background-color: rgba(255, 228, 1, 1);
-                bottom: -5px;
-                left: 25%;
-            }
+    .menu {
+        flex-direction: row;
+        max-width: 100%;
+        width: 90%;
+        margin-left: 0;
+        display: flex; /* Добавлено */
+        flex-wrap: wrap; /* Добавлено */
+    }
+    .login-btn {
+            background-color: rgba(255, 228, 1, 1);
+            color: #333;
+            padding: 1.1111% 2.2222%; /* Внутренние отступы кнопки */
+            border: none;
+            font-size: 0.9889rem; /* Размер шрифта кнопки */
+            border-radius: 5px;
+            cursor: pointer; /* Отступ слева */
         }
+}
+footer{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 25px;
+    background-color: rgb(62, 226, 12);
+}
+.social,
+.menu3{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 12px 0;
+    flex-wrap: wrap;
+}
+.social li,
+.menu3 li{
+    list-style: none;
+}
+.social li a {
+    font-size: 1.25em;
+    color: #4e4e4e;
+    margin: 0 10px;
+    display: inline-block;
+    transition: transform .2s;
+}
+.social li a:hover{
+    transform: scale(1.5);
+}
+.menu3 li a {
+    font-size: 1.1em;
+    color: #000;
+    opacity: 0.75;
+    margin: 0 15px;
+    text-decoration: none;
+}
+.menu3 li a:hover {
+    opacity: 1;
+}
+footer p {
+    color: #000;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.05em;
+}   
     </style>
 </head>
 <body>
@@ -163,8 +296,14 @@
             <div class="logo"></div>
         </a>
         <nav class="menu">
-            <a href="getmoney.html" class="menu-item">Получить деньги</a>
-            <a href="otdat.html" class="menu-item">Погасить кредит</a>
+            <div class="dropdown">
+                <button class="dropbtn">Услуги</button>
+                <div class="dropdown-content">
+                  <a href="#">Личный кабинет</a>
+                  <a href="#">Взять деньги</a>
+                  <a href="#">Отдать деньги</a>
+                </div>
+                </div>
             <div class="dropdown">
                 <button class="dropbtn">Поддержка</button>
                 <div class="dropdown-content">
@@ -172,6 +311,7 @@
                   <a href="#">FAQ</a>
                   <a href="#">Разместить вопрос</a>
                 </div>
+            </div>
               </div>
               <div class="dropdown">
                 <button class="dropbtn">Контакты</button>
@@ -189,8 +329,143 @@
                   <a href="#">Партнерство</a>
                 </div>
               </div>
+              <button class="login-btn">Вход</button>
         </nav>
-        <button class="login-btn">Вход</button>
     </header>
+    <div class="content">
+        <div class="block1">
+            <div class="panel1">
+                <h2>Сервис Kekezaim.kz - лучшее решение.</h2>
+                <h3>Наши преимущества:</h3>
+                <ul>
+                    <li> - Отсутствие процентов на первый кредит</li>
+                    <li> - Регистрация без проверок</li>
+                    <li> - Получение денег на карту за 5 минут</li>
+                    <li> - Самый низкий процент по кредитам</li>
+                    <li> - Реферальная система и бонусы</li>
+                    <li> - Повышение клиентского рейтинга</li>
+                    <li> - Гибкие условия погашения</li>
+                </ul>
+            </div>
+            <div class="panel2">
+                <h2>Кредитный калькулятор</h2>
+                <div class="calculator" id="calculatorForm">
+                    <label for="amount">Сумма кредита:</label>
+                    <input type="number" id="amount" min="1" step="1"><br>
+                    <label for="term">Срок кредита (в днях):</label>
+                    <input type="number" id="term" min="1" step="1"><br>
+                    <input type="checkbox" id="firstLoan">
+                    <label for="firstLoan">Первый кредит без процентов</label><br>
+                    <button onclick="calculate()">Рассчитать</button><br>
+                    <div id="result" style="display: none;"></div>
+                </div>
+                <div class="calculator" id="calculatorResult" style="display: none;">
+                    <h3>Информация о кредите:</h3>
+                    <p>Сумма кредита: <span id="resultAmount"></span></p>
+                    <p>Процентная ставка в сутки: <span id="resultInterestRate"></span></p>
+                    <p>Срок кредита (в днях): <span id="resultTerm"></span></p>
+                    <p>Накопленные проценты: <span id="resultTotalInterest"></span></p>
+                    <p>Общая сумма к возврату: <span id="resultTotalAmount"></span></p>
+                    <button onclick="returnToCalculator()">Вернуться к расчету</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    <div class="block2">
+        <div class="panel3">
+            <h3>Как получить микрокредит</h3>
+            <div class="panel4">
+                <div class="ungiv">
+                    <h4>Шаг 1. Заявка</h4>
+                    <p>После регистрации выберите лучшее предложение и заполните форму заявки.</p>
+                </div>
+                <div class="ungiv">
+                    <h4>Шаг 2. Одобрение</h4>
+                    <p>Mожно получить в среднем в течение 5 минут после заполнения формы заявки</p>
+                </div>
+                <div class="ungiv">
+                    <h4>Шаг 3. Получение денег</h4>
+                    <p>Вы получите в течение нескольких минут после одобрения заявки на микрокредит.</p>
+                </div>
+            </div>
+        </div>
+        <div class="block3">
+            <div class="panel3">
+                <h3>Как вернуть микрокредит</h3>
+                <div class="panel4">
+                    <div class="ungiv">
+                        <h4>1. Онлайн</h4>
+                        <p>Вы можете оплатить свой микрокредит с помощью банковской карты в своем личном кабинете на сайте микрокредитора.</p>
+                    </div>
+                    <div class="ungiv">
+                        <h4>2. В терминале</h4>
+                        <p>Вы можете оплатить наличными деньгами, воспользовавшись платежными (электронными) терминалами платежных систем.</p>
+                    </div>
+                    <div class="ungiv">
+                        <h4>3. В Кассе банка</h4>
+                        <p>Для безналичной оплаты вы можете перевести денежные средства на счет МФО через банковский перевод.</p>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <footer>
+        <ul class="menu3">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="road_map.html">Команда</a></li>
+            <li><a href="learning.html">Реферал</a></li>
+            <li><a href="community.html">Скачать договор</a></li>
+            <li><a href="clients_support.html">Поддержка</a></li>
+            <li><a href="clients_support.html">Смена интерфейса</a></li>
+        </ul>
+        <ul class="social">
+            <li><a href="#"><i class="fa-brands fa-telegram"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-whatsapp"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+        </ul>
+        <p>©2024 Экзаменационный проект - Kekezaim.kz | Трищ Кирилл ИС-22</p>
+    </footer>
+<script>
+function calculate() {
+    var amount = parseFloat(document.getElementById('amount').value);
+    var term = parseInt(document.getElementById('term').value);
+    var firstLoan = document.getElementById('firstLoan').checked;
+
+    var totalInterest = 0;
+    var interestRate = firstLoan ? 0 : 0.01; // Если первый кредит, то ставка 0, иначе 0.01 (1%)
+
+    if (!firstLoan) {
+        // Если это не первый кредит, рассчитываем сложный процент
+        for (var i = 0; i < term; i++) {
+            totalInterest += amount * interestRate;
+            amount += amount * interestRate;
+        }
+    }
+
+    var totalAmount = amount;
+
+    // Заполнение результатов в контейнере с результатами
+    document.getElementById('resultAmount').textContent = parseFloat(document.getElementById('amount').value).toFixed(2);
+    document.getElementById('resultInterestRate').textContent = (interestRate * 100).toFixed(2) + '%';
+    document.getElementById('resultTerm').textContent = term;
+    document.getElementById('resultTotalInterest').textContent = totalInterest.toFixed(2);
+    document.getElementById('resultTotalAmount').textContent = totalAmount.toFixed(2);
+
+    // Скрыть контейнер с формой и показать контейнер с результатами
+    document.getElementById('calculatorForm').style.display = 'none';
+    document.getElementById('calculatorResult').style.display = 'block';
+}
+
+function returnToCalculator() {
+    // Скрыть контейнер с результатами и показать контейнер с формой
+    document.getElementById('calculatorResult').style.display = 'none';
+    document.getElementById('calculatorForm').style.display = 'block';
+}
+</script>
+<script>  
+    document.getElementById('option1').addEventListener('click', function() {
+    this.style.backgroundColor = '#49a905'; // Изменяем цвет кнопки на зеленый
+    });
+</script>
+<script src="https://kit.fontawesome.com/09ef455c42.js" crossorigin="anonymous"></script>
 </body>
 </html>
