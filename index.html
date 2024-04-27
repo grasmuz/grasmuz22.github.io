@@ -225,6 +225,25 @@
                 menu.classList.remove('active');
             }
         });
+           // Закрытие выпадающего подменю при клике вне его области
+    document.addEventListener('click', function(event) {
+        var dropdowns = document.querySelectorAll('.dropdown-content');
+        var target = event.target;
+        dropdowns.forEach(function(dropdown) {
+            if (!dropdown.contains(target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+    });
+
+    // Показывать или скрывать выпадающее меню при клике на его заголовок
+    var dropdownHeaders = document.querySelectorAll('.dropbtn');
+    dropdownHeaders.forEach(function(header) {
+        header.addEventListener('click', function() {
+            var dropdownContent = this.nextElementSibling;
+            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+        });
+    });
     </script>
     <script src="https://kit.fontawesome.com/09ef455c42.js" crossorigin="anonymous"></script>
 </body>
