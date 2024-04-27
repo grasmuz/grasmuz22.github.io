@@ -211,29 +211,32 @@
         <button class="login-btn">Вход</button>
     </header>
 
-    <script>
-     function toggleMenu() {
-            var menu = document.querySelector('.menu');
-            menu.classList.toggle('active');
-            if (menu.classList.contains('active')) {
-                document.addEventListener('click', closeMenuOutside);
-            } else {
-                document.removeEventListener('click', closeMenuOutside);
-            }
+<script>
+    function toggleMenu() {
+        var menu = document.querySelector('.menu');
+        menu.classList.toggle('active');
+        if (menu.classList.contains('active')) {
+            document.addEventListener('click', closeMenuOutside);
+            document.addEventListener('touchstart', closeMenuOutside);
+        } else {
+            document.removeEventListener('click', closeMenuOutside);
+            document.removeEventListener('touchstart', closeMenuOutside);
         }
+    }
 
-        function toggleSubMenu(element) {
-            element.querySelector('.dropdown-content').classList.toggle('active');
-        }
+    function toggleSubMenu(element) {
+        element.querySelector('.dropdown-content').classList.toggle('active');
+    }
 
-        function closeMenuOutside(event) {
-            var menu = document.querySelector('.menu');
-            if (!menu.contains(event.target) && !event.target.classList.contains('burger-icon')) {
-                menu.classList.remove('active');
-                document.removeEventListener('click', closeMenuOutside);
-            }
+    function closeMenuOutside(event) {
+        var menu = document.querySelector('.menu');
+        if (!menu.contains(event.target) && !event.target.classList.contains('burger-icon')) {
+            menu.classList.remove('active');
+            document.removeEventListener('click', closeMenuOutside);
+            document.removeEventListener('touchstart', closeMenuOutside);
         }
-    </script>
+    }
+</script>
         <script src="https://kit.fontawesome.com/09ef455c42.js" crossorigin="anonymous"></script>
 </body>
 </html>
