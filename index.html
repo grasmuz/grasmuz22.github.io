@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documet</title>
+    <title>Document</title>
     <style>
         body {
             margin: 0;
@@ -39,21 +39,23 @@
         }
 
         .menu {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
 
         .menu-item {
             margin-right: 6vw;
             margin-left: 6vw;
-}
-@media screen and (max-width: 786px){
-    .menu-item{
-        margin-right: 3vw;
-        margin-left: 3vw;
-    }
-}
+        }
+
+        @media screen and (max-width: 786px){
+            .menu-item{
+                margin-right: 3vw;
+                margin-left: 3vw;
+            }
+        }
+
         .dropdown {
             position: relative;
         }
@@ -118,7 +120,7 @@
             .header {
                 flex-direction: row; /* Возвращаем направление ряда для хедера */
             }
-            
+
             .login-btn{
                 padding: 6px 10px;
             }
@@ -152,7 +154,7 @@
 
             .menu-item {
                 margin-right: 0; /* Убираем расстояние между пунктами меню на малых экранах */
-                margin-left:20px;
+                margin-left: 20px;
             }
 
             .close-btn {
@@ -170,7 +172,7 @@
         <a href="index.html" class="logo-link">
             <div class="logo"></div>
         </a>
-        <nav class="menu">
+        <nav class="menu" id="menu">
             <div class="close-btn" onclick="toggleMenu()"> <!-- Кнопка закрытия бургер-меню -->
                 &#10006;
             </div>
@@ -182,7 +184,7 @@
                 </div>
             </div>
             <div class="menu-item dropdown">
-                <p class="dropbtn">Поддержка</p>
+                <button class="dropbtn">Поддержка</button>
                 <div class="dropdown-content">
                     <a href="#">Написать в поддержку</a>
                     <a href="#">FAQ</a>
@@ -190,7 +192,7 @@
                 </div>
             </div>
             <div class="menu-item dropdown">
-                <a class="dropbtn">Контакты</a>
+                <button class="dropbtn">Контакты</button>
                 <div class="dropdown-content">
                     <a href="#">Связаться</a>
                     <a href="#">Команда</a>
@@ -198,7 +200,7 @@
                 </div>
             </div>
             <div class="menu-item dropdown">
-                <span class="dropbtn">Компания</span>
+                <button class="dropbtn">Компания</button>
                 <div class="dropdown-content">
                     <a href="#">Реферальная система</a>
                     <a href="#">Отзывы клиентов</a>
@@ -214,7 +216,16 @@
             var menu = document.querySelector('.menu');
             menu.classList.toggle('active');
         }
+
+        // Закрытие меню при клике вне его области
+        document.addEventListener('click', function(event) {
+            var menu = document.getElementById('menu');
+            var target = event.target;
+            if (!menu.contains(target) && !target.classList.contains('burger-icon')) {
+                menu.classList.remove('active');
+            }
+        });
     </script>
-        <script src="https://kit.fontawesome.com/09ef455c42.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/09ef455c42.js" crossorigin="anonymous"></script>
 </body>
 </html>
