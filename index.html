@@ -165,42 +165,42 @@
     </style>
 </head>
 <body>
-    <header class="header">
+  <header class="header">
         <div class="burger-icon" onclick="toggleMenu()">
             &#9776;
         </div>
         <a href="index.html" class="logo-link">
             <div class="logo"></div>
         </a>
-        <nav class="menu" id="menu">
+        <nav class="menu">
             <div class="close-btn" onclick="toggleMenu()"> <!-- Кнопка закрытия бургер-меню -->
                 &#10006;
             </div>
-            <div class="menu-item dropdown">
-                <button class="dropbtn">Услуги</button>
+            <div class="menu-item dropdown" onclick="toggleSubMenu(this)">
+                <span class="dropbtn">Услуги</span>
                 <div class="dropdown-content">
                     <a href="#">Взять деньги</a>
                     <a href="#">Отдать деньги</a>
                 </div>
             </div>
-            <div class="menu-item dropdown">
-                <button class="dropbtn">Поддержка</button>
+            <div class="menu-item dropdown" onclick="toggleSubMenu(this)">
+                <span class="dropbtn">Поддержка</span>
                 <div class="dropdown-content">
                     <a href="#">Написать в поддержку</a>
                     <a href="#">FAQ</a>
                     <a href="#">Разместить вопрос</a>
                 </div>
             </div>
-            <div class="menu-item dropdown">
-                <button class="dropbtn">Контакты</button>
+            <div class="menu-item dropdown" onclick="toggleSubMenu(this)">
+                <span class="dropbtn">Контакты</span>
                 <div class="dropdown-content">
                     <a href="#">Связаться</a>
                     <a href="#">Команда</a>
                     <a href="#">Адреса</a>
                 </div>
             </div>
-            <div class="menu-item dropdown">
-                <button class="dropbtn">Компания</button>
+            <div class="menu-item dropdown" onclick="toggleSubMenu(this)">
+                <span class="dropbtn">Компания</span>
                 <div class="dropdown-content">
                     <a href="#">Реферальная система</a>
                     <a href="#">Отзывы клиентов</a>
@@ -217,34 +217,10 @@
             menu.classList.toggle('active');
         }
 
-        // Закрытие меню при клике вне его области
-        document.addEventListener('click', function(event) {
-            var menu = document.getElementById('menu');
-            var target = event.target;
-            if (!menu.contains(target) && !target.classList.contains('burger-icon')) {
-                menu.classList.remove('active');
-            }
-        });
-           // Закрытие выпадающего подменю при клике вне его области
-    document.addEventListener('click', function(event) {
-        var dropdowns = document.querySelectorAll('.dropdown-content');
-        var target = event.target;
-        dropdowns.forEach(function(dropdown) {
-            if (!dropdown.contains(target)) {
-                dropdown.style.display = 'none';
-            }
-        });
-    });
-
-    // Показывать или скрывать выпадающее меню при клике на его заголовок
-    var dropdownHeaders = document.querySelectorAll('.dropbtn');
-    dropdownHeaders.forEach(function(header) {
-        header.addEventListener('click', function() {
-            var dropdownContent = this.nextElementSibling;
-            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-        });
-    });
+        function toggleSubMenu(element) {
+            element.querySelector('.dropdown-content').classList.toggle('active');
+        }
     </script>
-    <script src="https://kit.fontawesome.com/09ef455c42.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/09ef455c42.js" crossorigin="anonymous"></script>
 </body>
 </html>
